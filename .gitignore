@@ -1,0 +1,25 @@
+# Downloaded firmware (user-specific, extracted from Windows driver)
+firmware/mt7925/*.bin
+firmware/mt6639/*.bin
+firmware-extracted/
+
+# Downloaded packages (version-specific, too large for git)
+packages/*.pkg.tar.zst
+packages/*.pkg.tar.xz
+
+# Build artifacts & logs
+install.log
+test-live.log
+*.pyc
+__pycache__/
+
+# DKMS build artifacts (source is tracked)
+dkms-source/src/
+dkms-source/*.o
+dkms-source/*.ko
+dkms-source/*.mod
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
