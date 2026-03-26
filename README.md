@@ -2,7 +2,7 @@
 
 100% Offline toolkit — MediaTek Wi-Fi 7 MT7927 on CachyOS / Arch Linux.
 
-> MT7927 belum didukung kernel Linux. Toolkit ini fix WiFi + Bluetooth tanpa perlu internet di Linux.
+> MT7927 has no mainline Linux kernel support yet. This toolkit fixes WiFi + Bluetooth with no internet needed on the Linux side.
 
 ## Supported Hardware
 
@@ -11,37 +11,37 @@
 | MT7927 | `14c3:6639` / `14c3:7927` | WiFi 7 (2.4/5/6 GHz) |
 | MT6639 | USB `13d3:3588` | Bluetooth 5.4 |
 
-## Cara Pakai
+## Usage
 
-### 1. Di Windows — Jalankan `download.ps1`
+### 1. On Windows — Run `download.ps1`
 
 ```powershell
-# Klik kanan download.ps1 > "Run with PowerShell"
-# Atau:
+# Right-click download.ps1 > "Run with PowerShell"
+# Or:
 powershell -ExecutionPolicy Bypass -File download.ps1
 ```
 
-Script ini otomatis download:
+This script automatically downloads:
 - WiFi & Bluetooth firmware
-- Paket CachyOS (dkms, kernel headers)
+- CachyOS packages (dkms, kernel headers)
 - Driver source + patches
 
-### 2. Copy ke USB Drive
+### 2. Copy to USB Drive
 
-Copy folder `mt7927-offline-fix` ke USB.
+Copy the `mt7927-offline-fix` folder to a USB drive.
 
-### 3. Di CachyOS — Jalankan `install.sh`
+### 3. On CachyOS — Run `install.sh`
 
 ```bash
-sudo mount /dev/sda1 /mnt        # cek device: lsblk
+sudo mount /dev/sda1 /mnt        # check your device: lsblk
 cd /mnt/mt7927-offline-fix
 sudo bash scripts/install.sh
 sudo reboot
 ```
 
-Selesai. WiFi + Bluetooth jalan setelah reboot.
+Done. WiFi + Bluetooth should work after reboot.
 
-### Test di Live USB (opsional)
+### Test on Live USB (optional)
 
 ```bash
 sudo mount /dev/sda1 /mnt
@@ -51,12 +51,12 @@ sudo bash scripts/test-live.sh
 
 ## Troubleshooting
 
-| Masalah | Solusi |
-|---------|--------|
-| WiFi tidak muncul | `dmesg \| grep mt79` — cek error, coba `sudo modprobe mt7925e` |
-| Bluetooth tidak jalan | Shutdown, **cabut kabel power 10 detik**, nyalakan lagi |
-| Headers tidak cocok | Jalankan ulang `download.ps1` di Windows untuk update paket |
-| DKMS error setelah update kernel | `sudo dkms autoinstall` |
+| Problem | Solution |
+|---------|----------|
+| WiFi not showing | `dmesg \| grep mt79` — check errors, try `sudo modprobe mt7925e` |
+| Bluetooth not working | Shut down, **unplug power cable for 10 seconds**, power on again |
+| Headers mismatch | Re-run `download.ps1` on Windows to update packages |
+| DKMS error after kernel update | `sudo dkms autoinstall` |
 
 ## Credits
 
