@@ -54,7 +54,6 @@ sudo bash scripts/test-live.sh
 | Problem | Solution |
 |---------|----------|
 | WiFi not showing | `dmesg \| grep mt79` — check errors, try `sudo modprobe mt7925e` |
-| Bluetooth not working | Shut down, **unplug power cable for 10 seconds**, power on again |
 | Headers mismatch | Re-run `download.ps1` on Windows to update packages |
 | DKMS error after kernel update | `sudo dkms autoinstall` |
 
